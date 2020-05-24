@@ -22,8 +22,8 @@ than the led panel.
 
 ## How it works
 
-ESP32's ADC is not exactly linear, it has some bias andit can not measure voltages less than 0.1 or more 
-than 3.2 volts. Because of that the sensor must have resistors both side of it, to get the measurable 
+ESP32's ADC is not exactly linear, it has some bias and it can not measure voltages less than 0.1 or more 
+than 3.2 volts. Because of that the sensor must have resistors both sides of it, to get the measurable 
 scale to the middle. The sensor is not linear and it is a resistor net. My 250 mm sensor has 12 nonlinear 
 steps. Because of that the code reads the sensor 50 times sleeping 100 ms between and calculates the 
 average. Then the value is divided by 2000 to get a scale of values which are somewhere between 30 and 
