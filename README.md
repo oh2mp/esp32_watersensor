@@ -5,7 +5,7 @@ An ESP32 based BLE beacon that sends data from resistive liquid level sensor.
 You can buy a sensor eg. from 
 [Aliexpress](https://www.aliexpress.com/item/4000349189985.html)
 
-The program sends 8 bytes of data in BLE ManufacturerData every 5 seconds. The data format is:
+The program sends 8 bytes of data in BLE ManufacturerData about every 5 seconds. The data format is:
 
 - 2 bytes of Manufacturer ID 0x02E5 (Espressif Inc)
 - 2 bytes for identifying this sketch: 0xE948 (E code for oxygen :)
@@ -59,6 +59,8 @@ the values. This table is an example, its values have not been measured in real 
 50 0
 51 0
 </pre>
+
+The sketch prints the raw and converted values to the serial console every time when advertising.
 
 ## Circuit
 
