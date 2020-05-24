@@ -30,11 +30,14 @@ ms between and calculates the average. Then the value is divided by 2000 to get 
 are somewhere between 30 and 100.
 
 Because resistors have tolerance too, this kind of instruments may have different scale and it 
-must be calibrated. To get liters instead of a rawe value, we need a conversion table. The table can
-be saved to SPIFFS as filename table.txt. The format is: raw value, space, liters, newline.
-Eg. my sensor's readings are 33 when the float is on top and 49 when it is on the bottom. Then
-I can make a conversion table like this. It is a good idea to put some extra maximum and minimum values for
-the values. This table is an example, its values have not been measured in real world yet.
+must be calibrated. Also the water tanks may have shapes that water level is not directly proportional to the
+volume of the water.
+
+To get liters instead of a raw values, we need a conversion table. The table must be saved to SPIFFS with
+filename table.txt. The format is: raw value, space, liters, newline. Eg. my sensor's readings are 33 when 
+the float is on top and 49 when it is on the bottom. Then I can make a conversion table like this. It is a 
+good idea to put some extra maximum and minimum values for the values. This table is an example, its 
+values have not been measured in real world yet.
 
 <pre>
 31 90
