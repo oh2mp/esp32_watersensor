@@ -2,7 +2,7 @@
 
 An ESP32 based BLE beacon that sends data from resistive liquid level sensor.
 
-You can buy a sensor eg. from 
+Sensors can be bought eg. from 
 [Aliexpress](https://www.aliexpress.com/item/4000349189985.html)
 
 The program sends 8 bytes of data in BLE ManufacturerData about every 5 seconds. The data format is:
@@ -18,16 +18,16 @@ The program sends 8 bytes of data in BLE ManufacturerData about every 5 seconds.
 Motorhomes have usually capacitive sensors for the level of the fresh water tank. There are just four
 metal sticks of different length and the meter or just several leds show water amount only as 
 1/4, 1/2, 3/4 or full tank. I wanted to have a little more accurate meter AND get the data also elsewhere 
-than the led panel.
+than the four led panel of the car.
 
 ## How it works
 
 ESP32's ADC is not exactly linear, it has some bias and it can not measure voltages less than 0.1 or more 
-than 3.2 volts. Because of that the sensor must have resistors both sides of it, to get the measurable 
-scale to the middle. The sensor is not linear and it is a resistor net. My 250 mm sensor has 12 nonlinear 
-steps. Because of that the code reads the sensor 50 times sleeping 100 ms between and calculates the 
-average. Then the value is divided by 2000 to get a scale of values which are somewhere between 30 and 
-100.
+than 3.2 volts. Because of that the sensor must have resistors both sides of it, to get the measured 
+values to the middle of the full scale (0-4095). The sensor is not linear either and it is actually a 
+resistor net, so it has nonlinear steps. Because of that the code reads the sensor 50 times sleeping 100 
+ms between and calculates the average. Then the value is divided by 2000 to get a scale of values which 
+are somewhere between 30 and 100.
 
 Because resistors have tolerance too, this kind of instruments may have different scale and it 
 must be calibrated. To get liters instead of a rawe value, we need a conversion table. The table can
