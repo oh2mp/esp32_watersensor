@@ -9,8 +9,8 @@ The program sends 8 bytes of data in BLE ManufacturerData about every 5 seconds.
 
 - 2 bytes of Manufacturer ID 0x02E5 (Espressif Inc)
 - 2 bytes for identifying this sketch: 0xE948 (E code for oxygen :)
-- 1 byte containing the calculated value of sensor (see later)
-- 1 byte containing the converted value of sensor (see later)
+- 1 byte containing the calculated value of the sensor (see later)
+- 1 byte containing the converted value of the sensor (see later)
 - 2 extra bytes as 0xBEEF because it's delicious
 
 ## Background
@@ -35,13 +35,10 @@ volume of the water.
 
 To get liters instead of a raw values, we need a conversion table. The table must be saved to SPIFFS with
 filename table.txt. The format is: raw value, space, liters, newline. Eg. my sensor's readings are 33 when 
-the float is on top and 49 when it is on the bottom. Then I can make a conversion table like this. It is a 
-good idea to put some extra maximum and minimum values for the values. This table is an example, its 
-values have not been measured in real world yet.
+the float is on top and 49 when it is on the bottom. Then I can make a conversion table like this. 
+This table is an example, its values have not been measured in real world yet.
 
 <pre>
-31 90
-32 90
 33 90
 34 80
 35 70
@@ -59,8 +56,6 @@ values have not been measured in real world yet.
 47 10
 48 5
 49 0
-50 0
-51 0
 </pre>
 
 The sketch prints the raw and converted values to the serial console every time when advertising.

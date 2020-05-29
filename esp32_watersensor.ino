@@ -49,12 +49,16 @@ void set_beacon() {
  */
 
 void readtable() {
+    memset(convtable, 0, sizeof(convtable));
+    
     if (SPIFFS.exists("/table.txt")) {
         File file;
         file = SPIFFS.open("/table.txt", "r");
         char numstr[8];
         int inx;
         int val;
+        byte fillflag = 0;
+        
         while (file.available()) {
             memset(numstr,0,8);
             file.readBytesUntil(' ', numstr, 8);
@@ -63,6 +67,10 @@ void readtable() {
             file.readBytesUntil('\n', numstr, 8);
             val = (char)atoi(numstr);
             convtable[inx] = val;
+            if (fillflag == 0) {
+                memset(convtable,val,inx);
+                fillflag = 1;
+            }
         }
         file.close();
     }
