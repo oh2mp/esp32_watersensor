@@ -34,7 +34,7 @@ void set_beacon() {
 
     mfdata = "";
     mfdata += (char)0xE5; mfdata += (char)0x02;  // Espressif Incorporated Vendor ID = 0x02E5
-    mfdata += (char)0xe9; mfdata += (char)0x48;  // Identifier for this sketch is 0xE948 (Oxygen)
+    mfdata += (char)0x48; mfdata += (char)0xE9;  // Identifier for this sketch is 0xE948 (Oxygen)
     mfdata += (char)(sensor);                    // Raw (calculated) value from the sensor
     mfdata += convtable[sensor];                 // Table converted value
     mfdata += (char)0xBE; mfdata += (char)0xEF;  // Beef is always good nutriment
