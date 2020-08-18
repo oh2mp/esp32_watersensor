@@ -63,3 +63,5 @@ The sketch prints the raw and converted values to the serial console every time 
 ## Circuit
 
 ![circuit](s/esp32_watersensor.png)
+
+![installation](s/sensor_installation.jpg)
